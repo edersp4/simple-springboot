@@ -1,5 +1,6 @@
 package com.simple.simplespringboot.controller;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -18,6 +19,7 @@ class SimpleControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @DisplayName("Test Greet Endpoint")
     @Test
     void testGreetEndpoint() throws Exception {
         this.mockMvc.perform(get("/api/greet"))
@@ -26,6 +28,7 @@ class SimpleControllerTest {
 
     }
 
+    @DisplayName("Test Echo Endpoint")
     @Test
     void echo() throws Exception {
         this.mockMvc.perform(get("/api/echo?message=teste"))
@@ -33,6 +36,7 @@ class SimpleControllerTest {
                     .andExpect(content().string("teste"));
     }
 
+    @DisplayName("Test Square Endpoint with number 3")
     @Test
     void square() throws Exception {
         this.mockMvc.perform(get("/api/square?number=3"))
@@ -40,6 +44,7 @@ class SimpleControllerTest {
                     .andExpect(content().string("9"));
     }
 
+    @DisplayName("Test Square Endpoint without param value")
     @Test
     void testSquareWithoutParamValue() throws Exception {
         this.mockMvc.perform(get("/api/square"))
@@ -47,6 +52,7 @@ class SimpleControllerTest {
                     .andExpect(content().string("Number cannot be null"));
     }
 
+    @DisplayName("Test Square Endpoint with NAN param value")
     @Test
     void testSquareWithNANParamValue() throws Exception {
         this.mockMvc.perform(get("/api/square?number=abc"))
