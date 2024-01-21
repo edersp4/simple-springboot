@@ -10,5 +10,4 @@ import java.util.List;
 public interface UserMapper {
     List<UserResource> toResources(List<User> users);
 
-    UserResource toResource(User user);
 }
