@@ -9,4 +9,6 @@ import java.util.List;
 @Mapper(config = ConfigMapper.class)
 public interface UserMapper {
     List<UserResource> toResources(List<User> users);
+
+    UserResource toResource(User user);
 }
